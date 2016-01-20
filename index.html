@@ -2,9 +2,11 @@
 <html>
   <head>
     <script type="application/javascript" src="photos.js"></script>
-    <link type="text/css" href="slack.css" rel="stylesheet"/>
+    <link type="text/css" href="photos.css" rel="stylesheet"/>
+
   </head>
   <body>
+    <div class="loading" id ="loadingIndicator"></div>
     <div id="images" class="images"></div>
     <div id="photoLightbox" style="display:none" onclick="document.getElementById('photoLightbox').style.display='none';" animation="fade" class="photoLightBox">
       <table class="lightboxTable">

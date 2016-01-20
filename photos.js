@@ -1,9 +1,15 @@
 var api_key = '8665d22603b0a80df271bfeeddce0249';
 var baseURL = ' https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=' + api_key + '&format=json&nojsoncallback=1';
+var isLoading = true;
 document.addEventListener('DOMContentLoaded', function () {
   requestPhotos();
+  // invalidateLoading();
 }, false);
 
+function invalidateLoading() {
+  isLoading=false;
+  document.getElementById("loadingIndicator").className="unloading"
+}
 //requests photos from api
 function requestPhotos () {
   requestHTTP = new XMLHttpRequest();
@@ -23,6 +29,7 @@ function checkRequestStatus () {
     if (requestHTTP.status === 200){
       console.log('status = 200');
       res = JSON.parse(requestHTTP.responseText)
+      invalidateLoading();
       parsePhotos(res.photos.photo);
     }else {
       console.error('Error: The response could not be completed');
@@ -67,5 +74,4 @@ function openLightBox (imgUrl) {
   document.getElementById('photoLightbox').style.display='inline';
   document.getElementById('lightBoxContents').innerHTML = '<img src=' + imgUrl + '/>';
 }
-
 }
