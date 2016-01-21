@@ -13,13 +13,11 @@ function invalidateLoading() {
 //requests photos from api
 function requestPhotos () {
   requestHTTP = new XMLHttpRequest();
-  console.log('requesting photos');
     if (!requestHTTP) {
       console.error('Could not be requested');
     }
     requestHTTP.onreadystatechange = checkRequestStatus;
     requestHTTP.open('GET', baseURL, true);
-    console.log('getting done');
     requestHTTP.send(null);
 }
 
@@ -27,7 +25,6 @@ function requestPhotos () {
 function checkRequestStatus () {
   if (requestHTTP.readyState === XMLHttpRequest.DONE) {
     if (requestHTTP.status === 200){
-      console.log('status = 200');
       res = JSON.parse(requestHTTP.responseText)
       invalidateLoading();
       parsePhotos(res.photos.photo);
