@@ -21,6 +21,7 @@
 
 #lightBoxContents img{
     max-height:60%;
+    min-height:40%;
     max-width: 80%;
     border: solid;
     border-width: thin;
