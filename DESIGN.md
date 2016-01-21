@@ -8,7 +8,7 @@ Tells user that page is still loading
 
 Red background with white borders
 ------
-enhances readability
+Enhances readability
 
 Thumbnails enlarge on hover
 -------
